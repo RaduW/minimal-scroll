@@ -17,13 +17,23 @@
 </head>
 <body>
 <div>
-  <div class="display-info"><span>parent info</span><span class='info' id="parent-offset"></span><span class='info' id="parent-rect"></span></div>
-  <div class="display-info"><span>target info</span><span class='info' id="target-offset"></span><span class='info' id="target-rect"></span></div>
+  <div class="display-info">
+    <span>parent info</span>
+    <span class='info' id="parent-offset"></span>
+    <span class='info' id="parent-rect"></span>
+    <span class="info" id="parent-cssInfo"></span>
+  </div>
+  <div class="display-info">
+    <span>target info</span>
+    <span class='info' id="target-offset"></span>
+    <span class='info' id="target-rect"></span>
+    <span class="info" id="target-cssInfo"></span>
+  </div>
 </div>
 <button id="to-top">Scroll Top</button>
 <button id="to-bottom">Scroll Bottom</button>
-<div class="bound">Before1</div>
-<div class="bound">Before2</div>
+<div >Some text</div>
+<div >Some other text</div>
 <div class="parent" id="parent">
   <div class="bound">Elm 1</div>
   <div class="bound">Elm 2</div>
@@ -108,8 +118,8 @@
   <div class="bound">Elm 70</div>
 
 </div>
-<div class="bound">After1</div>
-<div class="bound">After2</div>
+<div>First line after scroller</div>
+<div >Second line after scroller</div>
 
 </body>
 </html>

@@ -2,23 +2,27 @@
     border: thin gray solid;
 }
 
-.parent{
-    overflow: scroll;
+.parent {
+    overflow: auto;
     height: 200px;
     margin: 1em;
     padding: 1em;
+    background-color: cornsilk;
+    /*
     border: 10px green solid
+    */
 }
 
-.target{
-    //margin: 1em;
-    border: thick violet solid;
+.target {
+    margin: 1.5em;
+    padding: 1.2em;
+    border: 0.9em violet solid;
     background-color: darkseagreen;
 
 }
 
 .display-info {
-    margin:1em;
+    margin: 1em;
     padding: 0.5em;
     border: thin brown solid;
 }
