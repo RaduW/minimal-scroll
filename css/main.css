@@ -8,17 +8,16 @@
     margin: 1em;
     padding: 1em;
     background-color: cornsilk;
-    /*
-    border: 10px green solid
-    */
+    border-top: 10px green solid;
+    border-bottom: 23px green solid;
 }
 
 .target {
-    margin: 1.5em;
-    padding: 1.2em;
-    border: 0.9em violet solid;
+    margin: 30px;
+    border-top: 15px violet solid;
+    border-bottom: 22px violet solid;
+    padding: 17px;
     background-color: darkseagreen;
-
 }
 
 .display-info {

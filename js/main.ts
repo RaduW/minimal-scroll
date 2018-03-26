@@ -65,12 +65,13 @@ function onToTop() {
   const target = getTarget()
   const targetRect = target.getBoundingClientRect()
   const parentRect = parent.getBoundingClientRect()
-  const computed = window.getComputedStyle(target)
-
+  const parentStyle = window.getComputedStyle(parent)
+  const parentBorderTop =  parseInt(parentStyle.getPropertyValue('border-top-width'))
 
   const scrollDelta = targetRect.top - parentRect.top
-  parent.scrollTop = parent.scrollTop + scrollDelta
-
+  //we don't relly want to align client top to parent top, we actually want to align client top
+  //under the top border of the parent( so align client top to the end of the parent border top)
+  parent.scrollTop = parent.scrollTop + scrollDelta - parentBorderTop
 }
 
 function onToBottom() {
@@ -78,17 +79,26 @@ function onToBottom() {
   const target = getTarget()
   const targetRect = target.getBoundingClientRect()
   const parentRect = parent.getBoundingClientRect()
-  const computed = window.getComputedStyle(target)
-  const elmHeight: number = parseInt(computed.getPropertyValue('height')) +
-    parseInt(computed.getPropertyValue('padding-bottom')) +
-    parseInt(computed.getPropertyValue('padding-top')) +
-    parseInt(computed.getPropertyValue('border-top-width')) +
-    parseInt(computed.getPropertyValue('border-bottom-width'))
+  const clientStyle = window.getComputedStyle(target)
+  const parentStyle = window.getComputedStyle(parent)
+  const parentBorderTop =  parseInt(parentStyle.getPropertyValue('border-top-width'))
+
+  //calculate element height as css height + border + padding
+  const elmHeight: number = parseInt(clientStyle.getPropertyValue('height')) +
+    parseInt(clientStyle.getPropertyValue('padding-bottom')) +
+    parseInt(clientStyle.getPropertyValue('padding-top')) +
+    parseInt(clientStyle.getPropertyValue('border-top-width')) +
+    parseInt(clientStyle.getPropertyValue('border-bottom-width'))
   innerHeight = parent.clientHeight
 
+
+  const parentBorderBottom: number = parseInt(parentStyle.getPropertyValue('border-bottom-width'))
+
+  //from the position that would alignt to the top substract inner height (i.e. align under the bottom ) than add
+  //element height (align the bottom of the parent with the bottom of the target)
   const scrollDeltaTop = targetRect.top - parentRect.top // how much I would need to scroll to align at the top
   const scrollDelta = scrollDeltaTop - innerHeight + elmHeight
-  parent.scrollTop = parent.scrollTop + scrollDelta
+  parent.scrollTop = parent.scrollTop + scrollDelta - parentBorderTop
 
 }
 
