@@ -20,6 +20,14 @@
     background-color: darkseagreen;
 }
 
+.large-target {
+    margin: 30px;
+    border-top: 15px violet solid;
+    border-bottom: 22px violet solid;
+    padding: 17px;
+    background-color: darkseagreen;
+}
+
 .display-info {
     margin: 1em;
     padding: 0.5em;
