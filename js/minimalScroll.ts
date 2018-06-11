@@ -26,7 +26,7 @@ namespace MinimalScroll {
     const parentBorderTop = parseInt(parentStyle.getPropertyValue('border-top-width'))
 
     //calculate element height as css height + border + padding
-    const elmHeight: number = getElementHeight(elm)
+    const elmHeight: number = elm.offsetHeight
     const innerHeight = parent.clientHeight
 
 
@@ -41,7 +41,7 @@ namespace MinimalScroll {
 
   export function minimalScroll(elm: HTMLElement, parent: HTMLElement) {
     //first see if the element is bigger than the client rect
-    const elmHeight: number = getElementHeight(elm)
+    const elmHeight: number = elm.offsetHeight
     const innerHeight = parent.clientHeight
     const parentRect = parent.getBoundingClientRect()
     const targetRect = elm.getBoundingClientRect()
@@ -76,17 +76,6 @@ namespace MinimalScroll {
         scrollToBottom(elm, parent)
       }
     }
-  }
-
-
-  function getElementHeight(elm: HTMLElement): number {
-    const clientStyle = window.getComputedStyle(elm)
-    const elmHeight: number = parseInt(clientStyle.getPropertyValue('height')) +
-      parseInt(clientStyle.getPropertyValue('padding-bottom')) +
-      parseInt(clientStyle.getPropertyValue('padding-top')) +
-      parseInt(clientStyle.getPropertyValue('border-top-width')) +
-      parseInt(clientStyle.getPropertyValue('border-bottom-width'))
-    return elmHeight
   }
 
 }
