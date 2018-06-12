@@ -78,6 +78,18 @@ function onToBottom() {
   MinimalScroll.scrollToBottom(target, parent)
 }
 
+function onToCenter() {
+  const parent = getParent()
+  const target = getTarget()
+  MinimalScroll.scrollToCenter(target, parent, false)
+}
+
+function onToCenterMinimal() {
+  const parent = getParent()
+  const target = getTarget()
+  MinimalScroll.scrollToCenter(target, parent, true)
+}
+
 function onToTopLarge() {
   const parent = getParent()
   const target = getLargeTarget()
@@ -117,6 +129,10 @@ $(document).ready(function () {
   toTop.addEventListener('click', onToTop)
   const toBottom = document.getElementById('to-bottom')
   toBottom.addEventListener('click', onToBottom)
+  const toCenter = document.getElementById('to-center')
+  toCenter.addEventListener('click', onToCenter)
+  const toCenterMinimal = document.getElementById('to-center-minimal')
+  toCenterMinimal.addEventListener('click', onToCenterMinimal)
   const toTopLarge = document.getElementById('to-top-large')
   toTopLarge.addEventListener('click', onToTopLarge)
   const toBottomLarge = document.getElementById('to-bottom-large')
