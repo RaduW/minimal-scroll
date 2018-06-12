@@ -45,6 +45,7 @@ namespace MinimalScroll {
     if ( elmHeight > innerHeight){
       // for content bigger than the client rect doesn't make any sense to center, just do a minimal scroll
       minimalScroll(elm, parent)
+      return
     }
 
     const parentRect = parent.getBoundingClientRect()
