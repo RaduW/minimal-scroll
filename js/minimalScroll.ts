@@ -1,8 +1,8 @@
 /*
- Name: minimalScroll.ts.ts
+ Name: minimalScroll.ts
  Date: 29 May 2018
  Author: raduw
- Description: TODO
+ Description: Scrolling library, scroll elements within a parent based on various criteria
  */
 
 namespace MinimalScroll {
